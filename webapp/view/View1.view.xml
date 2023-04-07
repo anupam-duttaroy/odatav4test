@@ -1,0 +1,23 @@
+<mvc:View controllerName="posttestapp.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m" xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core" xmlns:u="sap.ui.unified">
+    <Page id="page" title="{i18n>title}">
+        <content>
+        
+        <FlexBox id="fl">	
+		<!-- <Label id="pd" text="Student"/> -->
+		<Input id="studentId" placeholder="Student ID"></Input>
+        <Input id="studentName" placeholder="Student Name"></Input>
+        <Button id="btnCreate" text="Create Student" press="handleCreate" />
+        </FlexBox>
+	
+    
+    <List id="test" items="{/Students}" >
+                <items>
+                <StandardListItem id="item" title="{id}" description="{name}"></StandardListItem>
+                </items>
+                </List>
+        </content>
+    </Page>
+</mvc:View>
