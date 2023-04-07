@@ -11,27 +11,6 @@ sap.ui.define([
 
         return Controller.extend("posttestapp.controller.View1", {
             onInit: function () {
-                debugger;
-                var oDataModel = this.getOwnerComponent().getModel();
-                var aPromises = [];
-                var oListBinding = oDataModel.bindList("/Students");
-                
-                oListBinding.requestContexts().then(function(aContext){
-                    debugger;
-                });
-                
-                // oListBinding.getContexts();
-
-                // oListBinding.attachEventOnce("dataReceived", function (oEvent) {
-                //     debugger;
-                //     var aContexts = oListBinding.getContexts();
-                //     aContexts.forEach(function (oContext) {
-                //         // aPromises.push(oContext.delete("$auto"));
-                //     });
-                //     // Promise.all(aPromises).then(function () {
-                //         // Cleanup after Deletion
-                //     // });
-                // });
                 
             },
 
@@ -44,9 +23,9 @@ sap.ui.define([
                     var name = this.getView().byId("studentName").getValue();
                     var oModel = this.getOwnerComponent().getModel();
                     var that = this;
-                    var oList = this.byId("test"),
+                    //var oList = this.byId("test"),
                         // oBinding = oList.getBinding("items"),
-                        oBinding = oModel.bindList("/Students"),
+                    var oBinding = oModel.bindList("/Students"),
                         oContext = oBinding.create({
                             "id": id,
                             "name": name
@@ -66,7 +45,7 @@ sap.ui.define([
                             });
                         }
                     });
-                    // }.bind(this));
+                    
 
 
                     oContext.created().then(function () {
@@ -75,10 +54,8 @@ sap.ui.define([
                     }, function (oError) {
                         debugger;
                         var err = oError.toString();
-                    }).catch(function () {
-                        debugger;
                     });
-                    debugger;
+                    
                 } catch (err) { debugger; }
             }
         });
